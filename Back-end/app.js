@@ -16,9 +16,13 @@ import getInTouchRouter from './routes/get_in_touch_r.js'
 import contactRouter from './routes/contact_r.js'
 import protectedRouter from './routes/protected_r.js'
 import forgetPassRouter from './routes/forget_password_r.js'
+import resetPassRouter from './routes/reset_password_r.js'
 import settingsRouter from './routes/settings_r.js'
 import refreshRouter from './routes/refresh_token_r.js'
 import logoutRouter from './routes/logout_r.js'
+import notificationRouter from './routes/notification_r.js'
+import subscriptionRoutes from './routes/subscription_r.js'
+import invoiceRouter from './routes/invoice_r.js'
 
 
 // Environment variables
@@ -50,10 +54,14 @@ app.use('/blog', blogRouter)
 app.use('/get-in-touch', getInTouchRouter)
 app.use('/contact', contactRouter)
 app.use('/protected', protectedRouter)
-app.use('/api/', forgetPassRouter) 
+app.use('/forget-password', forgetPassRouter)
+app.use('/reset-password', resetPassRouter) 
 app.use('/settings', settingsRouter)
 app.use('/refresh', refreshRouter)
 app.use('/logout', logoutRouter)
+app.use('/settings/notifications', notificationRouter)
+app.use('/settings/billing/subscriptions', subscriptionRoutes)
+app.use('/settings/billing/invoices', invoiceRouter)
 
 // Database connection
 mongoose

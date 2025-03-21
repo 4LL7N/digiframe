@@ -26,13 +26,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // Not working
-    // emailServicePassword: { // Field to reset a forgotten password
-    //   type: String,
-    //   select: false,
-    //   required: true
-    // }
-})
+    notifications: {
+        emailAlerts: { type: Boolean, default: false },  
+        pushNotifications: { type: Boolean, default: false },
+        weeklySummary: { type: Boolean, default: false },
+        securityAlerts: { type: Boolean, default: false },
+        receivePromotionalEmails: { type: Boolean, default: false } 
+    }
+    }, { timestamps: true },
+
+)
 
 const UserSchema= mongoose.model('UserSchema', userSchema)
  
